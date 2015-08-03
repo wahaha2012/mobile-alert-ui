@@ -42,6 +42,8 @@
         confirmBtn:'确定'
     };
 
+    //!!Todo extend/dom/eventListener
+    
     /**
      * alert component
      * @param {[Object]} config alert component config
