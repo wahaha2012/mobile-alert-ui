@@ -22,7 +22,7 @@ function writeFile(filePath, fileDataStr, callback){
 
         callback && callback();
     }catch(err){
-        console.log('update error', err);
+        logErr('update error', err);
     }
 }
 
