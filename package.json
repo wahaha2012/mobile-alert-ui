@@ -26,11 +26,7 @@
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.3",
     "gulp-cssmin": "^0.1.7",
-    "less": "^2.5.1"
-  },
-  "devDependencies": {
-    "gulp-hash-creator": "^0.2.0",
-    "fs": "0.0.2",
+    "promise-deferred": "^2.0.1",
     "path": "^0.11.14",
     "mkdirp": "^0.5.1"
   }

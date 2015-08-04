@@ -5,31 +5,42 @@ var mkdirp = require("mkdirp");
 var less = require('gulp-less');
 var cssmin = require('gulp-cssmin');
 var clc = require('cli-color');
+var Deferred = require('promise-deferred');
 
 function logErr(err){
     var errMsg = clc.red(err);
     console.log(errMsg);
 }
 
-function writeFile(filePath, fileDataStr, callback){
-    var data = new Buffer(fileDataStr);
+function writeFile(filePath, fileDataStr){
+    var deferred = new Deferred(),
+        data = new Buffer(fileDataStr),
+        folderPath = path.dirname(filePath);
 
     try{
-        mkdirp(path.dirname(filePath));
+        if(!fs.existsSync(folderPath)){
+            mkdirp(folderPath);
+        }
         fs.writeFileSync(filePath, data);
 
-        console.log(filePath + " updated!");
+        // console.log(filePath + " updated!");
 
-        callback && callback();
+        deferred.resolve();
     }catch(err){
         logErr('update error', err);
+        deferred.reject();
     }
+
+    return deferred.promise;
 }
 
-function readFile(filePath, callback){
+function readFile(filePath){
+    var deferred = new Deferred();
     fs.readFile(filePath,'utf-8', function(err, fileDataStr){
-        callback && callback(fileDataStr);
+        deferred.resolve(fileDataStr);
     });
+
+    return deferred.promise;
 }
 
 gulp.task('less', function(){
@@ -41,14 +52,26 @@ gulp.task('less', function(){
 });
 
 gulp.task("bundle", ["less"], function(){
-    readFile('./src/css/alert.css', function(cssStr){
-        readFile('./src/js/css.js', function(cssJsStr){
-            readFile('./src/js/index.js', function(jsStr){
-                cssJsStr = cssJsStr.replace("{{css}}", cssStr);
-                jsStr = jsStr.replace("{{cssStyle}}", cssJsStr);
-                writeFile('./bundle.js', jsStr);
-            });
-        });
+    var temp = '',
+        output = './bundle.js';
+    readFile('./src/css/alert.css').then(function(fileStr){
+        temp = fileStr;
+
+        return readFile('./src/js/css.js');
+    }).then(function(fileStr){
+        temp = fileStr.replace('{{{css}}}', temp);
+
+        return readFile('./src/js/alert.js');
+    }).then(function(fileStr){
+        temp = fileStr.replace('{{{style}}}', temp);
+
+        return readFile('./src/js/index.js');
+    }).then(function(fileStr){
+        temp = fileStr.replace("'{{{factory}}}'", temp);
+
+        return writeFile(output, temp);
+    }).then(function(){
+        console.log(output + ' updated!');
     });
 });
 
