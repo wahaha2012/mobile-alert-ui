@@ -2,12 +2,12 @@
 mobile alert ui component
 
 # Install
-use bower
+- use bower
 ```bash
 bower install mobile-alert-ui --save
 ```
 
-> download source file
+- download source file
 [alertUI](https://raw.githubusercontent.com/wahaha2012/mobile-alert-ui/master/bundle.js)
 
 # Usage
