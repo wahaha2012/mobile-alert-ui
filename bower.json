@@ -1,6 +1,6 @@
 {
   "name": "mobile-alert-ui",
-  "main": "index.js",
+  "main": "bundle.js",
   "version": "0.1.0",
   "homepage": "https://github.com/wahaha2012/mobile-alert-ui",
   "authors": [
@@ -11,6 +11,12 @@
     "mobile",
     "alert",
     "ui"
+  ],
+  "moduleType":[
+    "globals",
+    "amd",
+    "node",
+    "cmd"
   ],
   "license": "MIT",
   "ignore": [

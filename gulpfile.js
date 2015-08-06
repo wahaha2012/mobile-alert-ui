@@ -4,12 +4,24 @@ var path = require("path");
 var mkdirp = require("mkdirp");
 var less = require('gulp-less');
 var cssmin = require('gulp-cssmin');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 var clc = require('cli-color');
 var Deferred = require('promise-deferred');
 
 function logErr(err){
     var errMsg = clc.red(err);
     console.log(errMsg);
+}
+
+function jsUglify(){
+    return gulp.src('./bundle.js')
+        .pipe(uglify({
+            preserveComments:'some'
+        }))
+        // .pipe(rename('bundle.min.js'))
+        .on('error', logErr)
+        .pipe(gulp.dest('./'));
 }
 
 function writeFile(filePath, fileDataStr){
@@ -71,6 +83,7 @@ gulp.task("bundle", ["less"], function(){
 
         return writeFile(output, temp);
     }).then(function(){
+        jsUglify();
         console.log(output + ' updated!');
     });
 });
