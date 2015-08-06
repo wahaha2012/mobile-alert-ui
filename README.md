@@ -7,9 +7,7 @@ use bower
 bower install mobile-alert-ui --save
 ```
 
-download source file
-
-[alertUI](https://raw.githubusercontent.com/wahaha2012/mobile-alert-ui/master/bundle.js)
+[Download source](https://raw.githubusercontent.com/wahaha2012/mobile-alert-ui/master/bundle.js)
 
 # Usage
 global
