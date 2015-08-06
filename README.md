@@ -3,6 +3,7 @@ mobile alert ui component
 
 # Install
 > use bower
+
 ```bash
 bower install mobile-alert-ui --save
 ```
@@ -11,11 +12,13 @@ bower install mobile-alert-ui --save
 
 # Usage
 > global
+
 ```html
 <script src="./bundle.js"></script>
 ```
 
 > amd or cmd
+
 ```js
 var AlertUI = require('mobile-alert-ui/bundle');
 ```
