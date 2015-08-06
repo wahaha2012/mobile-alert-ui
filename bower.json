@@ -1,7 +1,7 @@
 {
   "name": "mobile-alert-ui",
   "main": "bundle.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/wahaha2012/mobile-alert-ui",
   "authors": [
     "wxwdesign <wxwdesign@gmail.com>"
@@ -24,7 +24,10 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "src",
+    "gulpfile.js",
+    "index.html"
   ],
   "dependencies": {}
 }

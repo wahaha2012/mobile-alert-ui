@@ -1,29 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-
-<!-- cortex build will generate the two files below. -->
-<script src="./neurons/neuron.js"></script>
-<script src="./neurons/config.js"></script>
-<script>
-  neuron.config({
-    // cortex build will generate a folder named `'neurons'` as well as the `'node_modules'` of node.js
-    path: './neurons'
-  });
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>mobile-alert-ui</title>
 </head>
-
 <body>
-<script>
 
-// method `facade` will load a module
-// and try to execute the `init` method of the module exports.
-facade({
-  entry: 'app-ui-alert'
-});
-
-</script>
+    <script src="./bundle.js"></script>
+    <script>
+        new AlertUI({
+            title: 'Notice',
+            content: 'Hello World',
+            cancelBtn: false
+        });
+    </script>
 </body>
-
 </html>
