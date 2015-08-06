@@ -2,20 +2,20 @@
 mobile alert ui component
 
 # Install
-use bower
+> use bower
 ```bash
 bower install mobile-alert-ui --save
 ```
 
-[Download source](https://raw.githubusercontent.com/wahaha2012/mobile-alert-ui/master/bundle.js)
+> [Download source](https://raw.githubusercontent.com/wahaha2012/mobile-alert-ui/master/bundle.js)
 
 # Usage
-global
+> global
 ```html
 <script src="./bundle.js"></script>
 ```
 
-amd or cmd
+> amd or cmd
 ```js
 var AlertUI = require('mobile-alert-ui/bundle');
 ```
@@ -30,6 +30,7 @@ new AlertUI({
 });
 ```
 
+
 > one confirm button
 
 ```js
@@ -38,6 +39,7 @@ new AlertUI({
     cancelBtn: false
 });
 ```
+
 
 > use title bar, but no button
 
