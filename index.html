@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mobile-alert-ui by wahaha2012</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Mobile-alert-ui</h1>
+      <h2 class="project-tagline">mobile alert ui component</h2>
+      <a href="https://github.com/wahaha2012/mobile-alert-ui" class="btn">View on GitHub</a>
+      <a href="https://github.com/wahaha2012/mobile-alert-ui/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/wahaha2012/mobile-alert-ui/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="mobile-alert-ui" class="anchor" href="#mobile-alert-ui" aria-hidden="true"><span class="octicon octicon-link"></span></a>mobile-alert-ui</h1>
+
+<p>mobile alert ui component</p>
+
+<h1>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h1>
+
+<blockquote>
+<p>use bower</p>
+</blockquote>
+
+<div class="highlight highlight-bash"><pre>bower install mobile-alert-ui --save</pre></div>
+
+<blockquote>
+<p><a href="https://raw.githubusercontent.com/wahaha2012/mobile-alert-ui/master/bundle.js">Download source</a></p>
+</blockquote>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<blockquote>
+<p>global</p>
+</blockquote>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>./bundle.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<blockquote>
+<p>amd or cmd</p>
+</blockquote>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">var</span> AlertUI <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>mobile-alert-ui/bundle<span class="pl-pds">'</span></span>);</pre></div>
+
+<h1>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h1>
+
+<blockquote>
+<p>full features: title bar, text info, buttons</p>
+</blockquote>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">new</span> <span class="pl-en">AlertUI</span>({
+    title<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Demo Notice<span class="pl-pds">'</span></span>,
+    content<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Hello World<span class="pl-pds">'</span></span>
+});</pre></div>
+
+<blockquote>
+<p>one confirm button</p>
+</blockquote>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">new</span> <span class="pl-en">AlertUI</span>({
+    content<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Hello World<span class="pl-pds">'</span></span>,
+    cancelBtn<span class="pl-k">:</span> <span class="pl-c1">false</span>
+});</pre></div>
+
+<blockquote>
+<p>use title bar, but no button</p>
+</blockquote>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">new</span> <span class="pl-en">AlertUI</span>({
+    title<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Demo Notice<span class="pl-pds">'</span></span>,
+    content<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Hello Word<span class="pl-pds">'</span></span>,
+    cancelBtn<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+    confirmBtn<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+    stayTime<span class="pl-k">:</span> <span class="pl-c1">5</span>
+})</pre></div>
+
+<h1>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h1>
+
+<div class="highlight highlight-js"><pre>config <span class="pl-k">:</span> {
+    <span class="pl-c">/*text infomations*/</span>
+    title<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Notice<span class="pl-pds">'</span></span>, <span class="pl-c">//dialogue title, default [Null]</span>
+    content<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Hello World<span class="pl-pds">'</span></span>, <span class="pl-c">//dialogue info, default [Null]</span>
+    confirmBtn<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>OK<span class="pl-pds">'</span></span>, <span class="pl-c">//confirm button text, default ['OK']</span>
+    cancelBtn<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Cancel<span class="pl-pds">'</span></span>, <span class="pl-c">//cancel button text, default ['cancel']</span>
+
+    <span class="pl-c">/*switch options*/</span>
+    showOverlay<span class="pl-k">:</span> <span class="pl-c1">true</span>, <span class="pl-c">//whether show dialogue overlay, default [true]</span>
+    autoShow<span class="pl-k">:</span> <span class="pl-c1">true</span>, <span class="pl-c">//whether auto show dialogue, default [true]</span>
+    stayTime<span class="pl-k">:</span> <span class="pl-c1">2</span>, <span class="pl-c">//dialogue stay time, default [2](seconds)</span>
+
+    <span class="pl-c">/*event handlers*/</span>
+    <span class="pl-en">onConfirm</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}, <span class="pl-c">//confirm button event handler</span>
+    <span class="pl-en">onCancel</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}, <span class="pl-c">//cancel button event handler</span>
+    <span class="pl-en">onShow</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){}, <span class="pl-c">//dialogue show event handler</span>
+    <span class="pl-en">onClose</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){} <span class="pl-c">//dialogue close event handler</span>
+}</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/wahaha2012/mobile-alert-ui">Mobile-alert-ui</a> is maintained by <a href="https://github.com/wahaha2012">wahaha2012</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
