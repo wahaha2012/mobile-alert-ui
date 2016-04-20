@@ -15,7 +15,8 @@ function() {
         autoShow: true,
         cancelBtn:'Cancel',
         confirmBtn:'OK',
-        stayTime: 2
+        stayTime: 2,
+        toast: false
     };
 
     var utils = {
@@ -215,6 +216,11 @@ function() {
                 utils.removeElement(this.dialogue.querySelector('.btn-cancel-auam'));
             }
 
+            if(this.config.toast){
+                utils.addClass(this.overlay, 'modal-ui-toast-overlay-auam');
+                utils.addClass(this.dialogue, 'modal-ui-toast-auam');
+            }
+
             utils.css(this.dialogue, {
                 top: (document.documentElement.clientHeight - this.dialogue.offsetHeight)/2 + 'px'
             });
@@ -225,7 +231,7 @@ function() {
                 this.config.onShow(this);
             }
 
-            if(!this.config.confirmBtn && !this.config.cancelBtn){
+            if((!this.config.confirmBtn && !this.config.cancelBtn) || this.config.toast){
                 setTimeout(function(){
                     self.close();
                 }, this.config.stayTime * 1000);

@@ -1,7 +1,7 @@
 {
   "name": "mobile-alert-ui",
   "main": "bundle.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "https://github.com/wahaha2012/mobile-alert-ui",
   "authors": [
     "wxwdesign <wxwdesign@gmail.com>"
